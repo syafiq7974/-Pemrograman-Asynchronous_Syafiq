@@ -110,8 +110,7 @@ Navigator.pop(context, Color) mengembalikan warna ke layar pertama, dan Future m
 
 *Praktikum 9: Memanfaatkan async/await dengan Widget Dialog
 Hasil
-![WhatsApp Image 2024-11-25 at 11 31 33_3133db01](https://github.com/user-attachments/assets/e86fc31b-56ab-4da2-b459-4fbe49c65008)
-![WhatsApp Image 2024-11-25 at 11 31 54_e2a2e0cd](https://github.com/user-attachments/assets/587669c2-0fd9-45db-99d9-fa325b31c8a6)
+![WhatsApp Image 2024-11-25 at 14 03 51_d3984f68](https://github.com/user-attachments/assets/bf923493-c973-4844-a627-0dbf7e04fa46)
 Soal
 Soal 17
 Apa yang terjadi saat tombol ditekan?
