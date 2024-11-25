@@ -121,3 +121,5 @@ Mengapa demikian?
 Fungsi showDialog menggunakan Future untuk menunggu hasil interaksi pengguna. Saat pengguna memilih warna, hasilnya dikembalikan menggunakan Navigator.pop, dan fungsi async menunggu hingga nilai dikembalikan. Nilai ini kemudian digunakan untuk memperbarui state widget dengan setState.
 Ganti warna favorit Anda!
 Ubah tiga warna di dialog dengan warna favorit Anda. Misalnya:
+![image](https://github.com/user-attachments/assets/4003357d-5192-4c63-aee6-57456c953d08)
+
