@@ -1,68 +1,62 @@
 import 'package:flutter/material.dart';
 
 class NavigationDialog extends StatefulWidget {
-  const NavigationDialog({Key? key}) : super(key: key);
+  const NavigationDialog({super.key});
 
   @override
-  _NavigationDialogState createState() => _NavigationDialogState();
+  State<NavigationDialog> createState() => _navigationDialogState();
 }
 
-class _NavigationDialogState extends State<NavigationDialog> {
-  Color _backgroundColor = Colors.white; // Warna default
-
-  // Method async untuk menampilkan dialog
-  Future<void> _showColorDialog(BuildContext context) async {
-    final selectedColor = await showDialog<Color>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Pilih Warna Favorit Anda"),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              leading: const Icon(Icons.circle, color: Colors.red),
-              title: const Text("Red"),
-              onTap: () => Navigator.pop(context, Colors.red),
-            ),
-            ListTile(
-              leading: const Icon(Icons.circle, color: Colors.green),
-              title: const Text("Green"),
-              onTap: () => Navigator.pop(context, Colors.green),
-            ),
-            ListTile(
-              leading: const Icon(Icons.circle, color: Colors.blue),
-              title: const Text("Blue"),
-              onTap: () => Navigator.pop(context, Colors.blue),
-            ),
-          ],
-        ),
-      ),
-    );
-
-    // Jika warna dipilih, perbarui state
-    if (selectedColor != null) {
-      setState(() {
-        _backgroundColor = selectedColor;
-      });
-    }
-  }
+class _navigationDialogState extends State<NavigationDialog> {
+  Color color = Colors.blue.shade700;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: color,
       appBar: AppBar(
-        title: const Text("Navigation Dialog - Syafiq"),
-        backgroundColor: Colors.blue,
+        title: const Text('Navigation Dialog Screen'),
       ),
-      body: Container(
-        color: _backgroundColor,
-        child: Center(
-          child: ElevatedButton(
-            onPressed: () => _showColorDialog(context),
-            child: const Text("Pilih Warna"),
-          ),
-        ),
+      body: Center(
+        child: ElevatedButton(
+            onPressed: () {
+              _showColorDialog(context);
+            },
+            child: const Text('Change Color')),
       ),
     );
+  }
+
+  _showColorDialog(BuildContext context) async {
+    await showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+            title: const Text('Very important question'),
+            content: const Text('Please choose a color'),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    color = Colors.red.shade700;
+                    Navigator.pop(context, color);
+                  },
+                  child: const Text('Red')),
+              TextButton(
+                  onPressed: () {
+                    color = Colors.blue.shade700;
+                    Navigator.pop(context, color);
+                  },
+                  child: const Text('Blue')),
+              TextButton(
+                  onPressed: () {
+                    color = Colors.green.shade700;
+                    Navigator.pop(context, color);
+                  },
+                  child: const Text('Green'))
+            ],
+          );
+        });
+    setState(() {});
   }
 }
